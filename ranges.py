@@ -16,4 +16,51 @@ for i in range(1,101):
         print("Maker")
     else:
         print(i)
+
+# Exercise 12
+# PizzaMaker wants to handle bulk orders of pizzas, with varying amounts of toppings on each. Ask the user for a number of pizzas - call it quantity. 
+# We then want to ask the user for quantity more numbers - the number of toppings on that pizza - and print them out as in the following example.
+
+# How many pizzas do you want to order?
+# $ 3
+# How many toppings for pizza 1?
+# $ 5
+# You have ordered a pizza with 5 toppings.
+# How many toppings for pizza 2?
+# $ 1
+# You have ordered a pizza with 1 toppings.
+# How many toppings for pizza 3?
+# $ 4
+# You have ordered a pizza with 4 toppings.
+
+# You will need:
+# to ask the user for input twice.
+# a loop of some kind.
+# to make sure your variables are what you think they are! Convert them to integers if needed.
+# string interpolation
+
+numpizzas=0
+pizzatoppings = []
+
+
+def get_input(inputstring):
+    variable=0
+    wait_for_input=True
+    while wait_for_input == True:
+        print(inputstring)
+        user_input = input()
+        try:
+            variable = int(user_input)
+            wait_for_input = False
+            return(variable)   
+        except ValueError:
+            print("Your input was invalid or unrecognized, please enter a number")
         
+        
+
+numpizzas=get_input("Please enter how many pizza\'s you would like to order")
+
+
+for i in range(numpizzas):
+    pizzatoppings.append(get_input("How many toppings for pizza # {}".format(i+1)))
+    print("you have ordered a pizza with {} toppings\n".format(pizzatoppings[i]))
